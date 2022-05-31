@@ -22,15 +22,6 @@ def test_CanCalculateTotal(checkout):
     assert checkout.calculateTotal() == 1
 
 
-@pytest.mark.skip
-def test_canApplyDiscount(checkout):
-    checkout.addDiscount("a", 3, 2)
-    checkout.additem("a")
-    checkout.additem("a")
-    checkout.additem("a")
-    assert checkout.calculateTotal() == 2
-
-
 def test_GetCorrectWithMultipleitems(checkout):
     checkout.additem("a")
     checkout.additem("b")
@@ -39,3 +30,12 @@ def test_GetCorrectWithMultipleitems(checkout):
 
 def test_canAddDiscountRule(checkout):
     checkout.addDiscount("a", 3, 2)
+
+
+@pytest.mark.skip
+def test_canApplyDiscount(checkout):
+    checkout.addDiscount("a", 3, 2)
+    checkout.additem("a")
+    checkout.additem("a")
+    checkout.additem("a")
+    assert checkout.calculateTotal() == 2
